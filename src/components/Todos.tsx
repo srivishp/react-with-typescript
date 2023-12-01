@@ -6,12 +6,14 @@
    * array: T[] means,an array of elements of type T
 
 */
+import TodoItem from "./TodoItem";
+import Todo from "../models/todos";
 
 //-> FC (Functional Component), is a generic type
 //# Todos is now considered a function that acts as a functional component (setting the type as FC)
 // props now has an object type with props.children property
-
-import Todo from "../models/todos";
+//? Using React.FC is important as it will not give an error (squiggly red lines) in the IDE regarding type
+//? And it will have the props.children property by default
 
 // We can add our own type alongside the generic type using <>
 // Setting type as Todo, which we created as a data model
@@ -21,7 +23,7 @@ const Todos: React.FC<{ items: Todo[] }> = (props) => {
   return (
     <ul>
       {props.items.map((item) => (
-        <li key={item.id}>{item.text}</li>
+        <TodoItem key={item.id} text={item.text} />
       ))}
     </ul>
   );
