@@ -3,7 +3,7 @@ import Todos from "./components/Todos";
 function App() {
   return (
     <>
-      <Todos />
+      <Todos items={["Item 1", "Item 2"]} />
     </>
   );
 }
